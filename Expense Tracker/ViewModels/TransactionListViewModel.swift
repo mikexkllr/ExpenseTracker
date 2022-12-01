@@ -17,6 +17,7 @@ typealias TransactionPrefixSum = [(String, Double)]
 
 final class TransactionListViewModel: ObservableObject {
     @Published var transactions: [Transaction] = []
+
     private var cancellabels = Set<AnyCancellable>()
     
     init() {
