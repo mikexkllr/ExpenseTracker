@@ -23,16 +23,20 @@ struct ContentView: View {
                     // MARK: Chart Section
                     let data = viewModel.accumulateTransactions()
                     let totalExpenses = data.last?.1 ?? 0
-                    CardView {
-                        VStack {
-                            ChartLabel(totalExpenses.formatted(.currency(code: "EUR")), type: .title)
-                            LineChart()
-                        }
+                    CardView(showShadow: false) {
+                        
+                            
+                            VStack {
+                                ChartLabel(totalExpenses.formatted(.currency(code: "EUR")), type: .title)
+                                LineChart()
+                            }
+                        
                         .background(Color.systemBackground)
                     }
                     .data(data)
                     .chartStyle(ChartStyle(backgroundColor: Color.systemBackground, foregroundColor: ColorGradient(Color.icon.opacity(0.4), Color.icon)))
                     .frame(height: 300)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
                     
                     
                     RecentTransactionList()
