@@ -7,9 +7,13 @@
 
 import Foundation
 import Combine
+import Collections
 
 // create typealias to use dictionary with these types as a new type
-typealias TransactionGroup = [String: [Transaction]]
+typealias TransactionGroup = OrderedDictionary<String, [Transaction]>
+
+// use this typealias to display data in the chart
+typealias TransactionPrefixSum = [(String, Double)]
 
 final class TransactionListViewModel: ObservableObject {
     @Published var transactions: [Transaction] = []
@@ -51,4 +55,40 @@ final class TransactionListViewModel: ObservableObject {
             .store(in: &cancellabels)
     }
     
+    func groupTransactionsByMonth() -> TransactionGroup {
+        guard !transactions.isEmpty else {
+            return [:]
+        }
+        
+        let groupedTransactions = TransactionGroup(grouping: transactions) { $0.month! }
+        
+        return groupedTransactions
+    }
+    
+    func accumulateTransactions() -> TransactionPrefixSum {
+        print("run accumulateTransactions")
+        guard !transactions.isEmpty else {
+            return []
+        }
+        
+        // data from api is not up to date so we cant use Date() and need to use weird USA time format instead of german
+        let today = "02/17/2022".dateParsed()
+        let dateInterval = Calendar.current.dateInterval(of: .month, for: today!)!
+        print("dateInterval", dateInterval)
+        
+        var sum: Double = .zero
+        var cumulativeSum = TransactionPrefixSum()
+        
+        // loop over every date in interval to build tuple (60 * 60 * 24)
+        for date in stride(from: dateInterval.start, to: today!, by: 60 * 60 * 24) {
+            let dailyExpenses = transactions.filter { $0.dateParsed == date && $0.isExpense }
+            let dailyTotal = dailyExpenses.reduce(0) { $0 - $1.signedAmount }
+            
+            sum += dailyTotal
+            cumulativeSum.append((date.formatted(), sum))
+            print(date.formatted(), "daily total: ", dailyTotal, "sum: ", sum)
+        }
+        
+        return cumulativeSum
+    }
 }
