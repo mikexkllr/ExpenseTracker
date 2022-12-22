@@ -12,6 +12,7 @@
 		334F0E12293868E2001417FF /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 334F0E11293868E2001417FF /* Collections */; };
 		334F0E15293869FB001417FF /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 334F0E14293869FB001417FF /* SwiftUICharts */; };
 		334F0E1729387017001417FF /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F0E1629387017001417FF /* DateExtension.swift */; };
+		338E399B2954BF0200C88661 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 338E399A2954BF0200C88661 /* data.json */; };
 		33B8B78229321B7900601F28 /* Expense_TrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8B78129321B7900601F28 /* Expense_TrackerApp.swift */; };
 		33B8B78429321B7900601F28 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B8B78329321B7900601F28 /* ContentView.swift */; };
 		33B8B78629321B7A00601F28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B8B78529321B7A00601F28 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		3306BED2293699FA00B88185 /* RecentTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionList.swift; sourceTree = "<group>"; };
 		334F0E0E29386409001417FF /* TransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionList.swift; sourceTree = "<group>"; };
 		334F0E1629387017001417FF /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		338E399A2954BF0200C88661 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		33B8B77E29321B7900601F28 /* Expense Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Expense Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B8B78129321B7900601F28 /* Expense_TrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense_TrackerApp.swift; sourceTree = "<group>"; };
 		33B8B78329321B7900601F28 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				33B8B793293220CE00601F28 /* Transaction.swift */,
+				338E399A2954BF0200C88661 /* data.json */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33B8B78929321B7A00601F28 /* Preview Assets.xcassets in Resources */,
+				338E399B2954BF0200C88661 /* data.json in Resources */,
 				33B8B78629321B7A00601F28 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

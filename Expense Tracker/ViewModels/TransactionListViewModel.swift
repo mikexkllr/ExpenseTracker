@@ -25,6 +25,8 @@ final class TransactionListViewModel: ObservableObject {
     }
     
     func getTransaction() {
+        // this is a network request but the same JSON file is also in the assets
+        // so you could just load the file from the assets instead of doing an network request  - peace mike
         guard let url = URL(string: "https://designcode.io/data/transactions.json") else {
             fatalError("invalid url")
         }
